@@ -1,4 +1,8 @@
-export default function Header({ name }: { name: string }) {
+import { useName } from "../contexts/NameContext";
+
+export default function Header() {
+  const name = useName();
+
   return (
     <header>
       <h1>Header</h1>

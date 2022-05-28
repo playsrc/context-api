@@ -1,16 +1,15 @@
 import { FormEvent, useState } from "react";
+import { useName, useUpdateName } from "../contexts/NameContext";
 
-type FormTypes = {
-  name: string;
-  onUpdateName: (name: string) => void;
-};
+export default function Form() {
+  const name = useName();
+  const updateName = useUpdateName();
 
-export default function Form({ name, onUpdateName }: FormTypes) {
   const [newName, setNewName] = useState(name);
 
   function onSubmitUpdate(e: FormEvent) {
     e.preventDefault();
-    onUpdateName(newName);
+    updateName(newName);
   }
 
   return (
